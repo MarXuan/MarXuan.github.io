@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jvm垃圾回收器介绍 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jvm垃圾回收器介绍介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。 1.Serial（串行）收集器这是一个单线程的收集器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jvm垃圾回收器介绍">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jvm垃圾回收器介绍介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。 1.Serial（串行）收集器这是一个单线程的收集器">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png">
+<meta property="og:image" content="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/3dac243340b2ba1a80694baf023e7710.png">
+<meta property="article:published_time" content="2018-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-11-16T10:15:21.102Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-20180706-jvm垃圾回收器介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2018-07-05T16:00:00.000Z" itemprop="datePublished">2018-07-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jvm/">jvm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jvm垃圾回收器介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jvm垃圾回收器介绍"><a href="#jvm垃圾回收器介绍" class="headerlink" title="jvm垃圾回收器介绍"></a>jvm垃圾回收器介绍</h1><p>介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。</p>
+<h4 id="1-Serial（串行）收集器"><a href="#1-Serial（串行）收集器" class="headerlink" title="1.Serial（串行）收集器"></a>1.Serial（串行）收集器</h4><p>这是一个单线程的收集器，新生代收集器，采用复制算法，意味着只会有一条GC线程区完成垃圾回收，并且在GC的时候必须暂停其他所有的用户线程，就是STW（Stop the world），直到它收集结束。很明显，STW越长，对用户的体验就越差，所以这个收集器不适合用在与用户交互比较多的地方（比如B/S），它适合运行在Client模式下的程序，因为没有多线程的上下文交互的开销。我们可以设置-XX:+UseSerialGC参数来使用这个收集器，这也是jvm在Client模式下的默认值。</p>
+<p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png" alt=""></p>
+<h4 id="2-Serial-Old收集器"><a href="#2-Serial-Old收集器" class="headerlink" title="2.Serial Old收集器"></a>2.Serial Old收集器</h4><p>Serial的老年代收集器，采用标记-整理算法，单线程，在GC的时候也需要暂停其他用户线程，在jdk1.5之前与Parallel收集器配合使用。</p>
+<h4 id="3-ParNew收集器"><a href="#3-ParNew收集器" class="headerlink" title="3.ParNew收集器"></a>3.ParNew收集器</h4><p>其实就是Serial的多线程版本，除了采用多线程收集外，其它所有的特点（回收策略、控制参数、回收算法）都与Serial收集器一致，采用复制算法，多个GC线程并行处理（这里讲一下并行和并发：并行是指多条GC线程同时进行工作，但此时用户线程处于等待状态；并发是指GC线程跟用户线程都在执行，但两者是交替执行的，用户线程继续运行，GC线程运行在另一个CPU上），它的存在就是为了缩短暂停时间（STW），但还是会有，是运行在Server模式下的首要选择，经常与CMS收集器来配合使用来实现真正意义上的并发收集器。设置参数  -XX:+UseParNewGC来控制使用。设置-XX:ParallelGCThreads来设置执行内存回收的线程数。</p>
+<p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/3dac243340b2ba1a80694baf023e7710.png" alt=""></p>
+<h4 id="4-Parallel-Scavenge收集器"><a href="#4-Parallel-Scavenge收集器" class="headerlink" title="4.Parallel Scavenge收集器"></a>4.Parallel Scavenge收集器</h4><p>Parallel收集器是一个新生代收集器，采用复制算法，也是一个多线程并行GC的收集器，看起来跟ParNew没什么不同啊，有什么特别之处呢，存在即合理，它的关注点跟ParNew不一样，ParNew关注的是缩短垃圾收集时间，而Parallel的关注点则是CPU吞吐量，所谓CPU吞吐量就是CPU中运行用户代码的时间与CPU总消耗时间的比值，比如：jvm运行100min，用户代码运行99min，垃圾收集1min，吞吐量就是99%，这种收集器能最高效率的利用CPU，适合进行后台运算。设置-XX:+UseParallelGC来控制使用，设置-XX:GCTimeRatio来设置用户执行时间占总时间的比例，默认99。设置-XX：MaxGCPauseMillis控制GC的最大停顿时间（只在Parallel下有）。</p>
+<h4 id="5-Parallel-Old收集器"><a href="#5-Parallel-Old收集器" class="headerlink" title="5.Parallel Old收集器"></a>5.Parallel Old收集器</h4><p>Parallel的老年代收集器，采用标记-整理算法，多线程并行收集，在GC时，仍然要暂停其他线程。在jdk1.6后出现，设置-XX:UseParallelOldGC来控制使用。</p>
+<h4 id="6-CMS收集器"><a href="#6-CMS收集器" class="headerlink" title="6.CMS收集器"></a>6.CMS收集器</h4><p>CMS（Concurrent Mark Sweep）收集器，顾名思义，并发标记清除，是一个老年代收集器，致力于获取最短回收停顿时间，使用标记清除算法，多线程，优点是并发收集（用户线程和GC线程可以同时工作），停顿小。它比前几种收集器要复杂一点，它的过程是：初始标记 -&gt; 并发标记 -&gt; 预清理 -&gt; 可控的预清理 -&gt; 重新标记 -&gt; 并发清除 -&gt; 并发重设。</p>
+<h5 id="初始标记"><a href="#初始标记" class="headerlink" title="初始标记"></a>初始标记</h5><p>这部分会有STW，作用是标记存活的对象，有两部分：</p>
+<p>1.标记所有老年代中的GC Roots对象。</p>
+<p>2.标记年轻代中活着的对象引用到的老年代中的对象。</p>
+<h5 id="并发标记"><a href="#并发标记" class="headerlink" title="并发标记"></a>并发标记</h5><p>这部分是用户线程和GC线程并发进行的，主要作用是从初始标记阶段所标记的对象找出所有的存活对象，因为是并发的，所以在运行期间会发生新生代的对象晋升到老年代、大对象分配到老年代以及老年代的对象之间引用变化，对于这些对象，都要重新标记，为了提高重新标记的效率，该阶段会把上述对象所在的Card标识为Dirty，后续只需扫描这些Dirty Card的对象，避免扫描整个老年代，并发标记阶段只负责将引用发生改变的Card标记为Dirty状态，不负责处理。</p>
+<h5 id="预清理"><a href="#预清理" class="headerlink" title="预清理"></a>预清理</h5><p>其实在并发标记阶段并不能标记所有的老年代的存活对象，比如在并发阶段，在新生代创建了一个对象A，并且引用了老年代的对象B，在并发阶段并不会标记B对象，在预清理阶段会标记这个对象。其实在此阶段干的还是标记的事。</p>
+<h5 id="可控的预清理"><a href="#可控的预清理" class="headerlink" title="可控的预清理"></a>可控的预清理</h5><p>为什么会有这个阶段？因为CMS GC的终极目标是降低垃圾回收时的暂停时间，所以在该阶段要尽最大的努力去处理那些在并发阶段被应用线程更新的老年代对象，这样在暂停的重新标记阶段就可以少处理一些，暂停时间也会相应的降低。这个阶段会不断的去扫描新生代，标记可达的老年代对象，但不是一直循环扫描的，最大时间5s，并且如果在这5s内发生了一次YGC就更好了，因为重新标记阶段也会扫描新生代。</p>
+<h5 id="重新标记"><a href="#重新标记" class="headerlink" title="重新标记"></a>重新标记</h5><p>这个阶段会导致第二次STW，该阶段的任务是完成标记整个年老代的所有的存活对象。这个阶段，重新标记的内存范围是整个堆，包含新生代和老年代。为什么要扫描新生代呢，因为对于老年代中的对象，如果被新生代中的对象引用，那么就会被视为存活对象，即使新生代的对象已经不可达了，也会使用这些不可达的对象当做cms的“gc root”，来扫描老年代； 因此对于老年代来说，引用了老年代中对象的新生代的对象，也会被老年代视作“GC ROOTS”:当此阶段耗时较长的时候，可以加入参数-XX:+CMSScavengeBeforeRemark，在重新标记之前，先执行一次ygc，回收掉年轻带的对象无用的对象，并将对象放入幸存带或晋升到老年代，这样再进行年轻带扫描时，只需要扫描幸存区的对象即可，一般幸存带非常小，这大大减少了扫描时间 。</p>
+<h5 id="并发清理"><a href="#并发清理" class="headerlink" title="并发清理"></a>并发清理</h5><p>这个阶段就是清理那些无用的对象了，这个阶段也是并发的，所以伴随程序运行自然就还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只好留待下一次GC时再清理掉。这一部分垃圾就称为“浮动垃圾”。</p>
+<h5 id="并发重设"><a href="#并发重设" class="headerlink" title="并发重设"></a>并发重设</h5><p>这个阶段并发执行，重新设置CMS算法内部的数据结构，准备下一个CMS生命周期的使用。</p>
+<h4 id="7-G1收集器"><a href="#7-G1收集器" class="headerlink" title="7.G1收集器"></a>7.G1收集器</h4><p>G1 (Garbage-First)是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足GC停顿时间要求的同时,还具备高吞吐量性能特征。它与CMS收集器相比有以下特点：空间整合和可预测停顿。可预测停顿是G1相对于CMS的一个大优势，降低停顿时间是G1和ＣＭＳ共同的关注点，但Ｇ１除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内。它主要分为四个步骤：初始标记，并发标记，最终标记，筛选回收。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" data-id="ck85qcw49000gdg83g4208851" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/10/20180710-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自定义类加载器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/05/20180705-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">动态代理设计模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jvm的对象创建 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jvm的对象创建1.类加载检查jvm在遇到new这个关键字时，先会去检查new的这个指令的参数是否能在常量池中定位到这个类的符号引用，因为常量池分为两部分：字面量和符号引用，字面量就是字符串值、常量值、基本类型数据的值等，而符号引用里面就包括了类和结构的完全限定名、字段名称和描述符以及方法的名称和描述符。如果能定位到，就检查这个类是否已经被加载过或者解析过，如果没加载，那就先加载这个类，加载这块就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jvm的对象创建">
+<meta property="og:url" content="http://yoursite.com/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jvm的对象创建1.类加载检查jvm在遇到new这个关键字时，先会去检查new的这个指令的参数是否能在常量池中定位到这个类的符号引用，因为常量池分为两部分：字面量和符号引用，字面量就是字符串值、常量值、基本类型数据的值等，而符号引用里面就包括了类和结构的完全限定名、字段名称和描述符以及方法的名称和描述符。如果能定位到，就检查这个类是否已经被加载过或者解析过，如果没加载，那就先加载这个类，加载这块就">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-07-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-11-12T06:53:41.677Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-20180715-jvm的对象创建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" class="article-date">
+  <time datetime="2018-07-14T16:00:00.000Z" itemprop="datePublished">2018-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jvm/">jvm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jvm的对象创建
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jvm的对象创建"><a href="#jvm的对象创建" class="headerlink" title="jvm的对象创建"></a>jvm的对象创建</h1><h4 id="1-类加载检查"><a href="#1-类加载检查" class="headerlink" title="1.类加载检查"></a>1.类加载检查</h4><p>jvm在遇到new这个关键字时，先会去检查new的这个指令的参数是否能在常量池中定位到这个类的符号引用，因为常量池分为两部分：字面量和符号引用，字面量就是字符串值、常量值、基本类型数据的值等，而符号引用里面就包括了类和结构的完全限定名、字段名称和描述符以及方法的名称和描述符。如果能定位到，就检查这个类是否已经被加载过或者解析过，如果没加载，那就先加载这个类，加载这块就是双亲委派模型。</p>
+<h4 id="2-分配内存"><a href="#2-分配内存" class="headerlink" title="2.分配内存"></a>2.分配内存</h4><p>new一个对象得分配内存，而对象所需的内存大小在类加载完后就已经确定。</p>
+<p>内存的分配方式有两种：<strong>指针碰撞</strong>和<strong>空闲列表</strong>。两种方式的原理：</p>
+<p>指针碰撞：用过的内存放到一边，没用过的放到另一边，然后有一个分界指针，向没用的内存方向移动到所需大小的位置即可。很明显，这种方式需要内存规整，所以是否选择这种方式取决于gc收集器的算法是不是“标记-整理”算法。</p>
+<p>空闲列表：jvm会维护一个可用的内存列表，分配内存时就选取一个足够大的内存进行分配。这种方式就不需要内存有多么规整，所以是否选择这种方式就取决于gc收集器的算法是不是“标记-清楚”算法。</p>
+<h5 id="内存分配并发问题"><a href="#内存分配并发问题" class="headerlink" title="内存分配并发问题"></a>内存分配并发问题</h5><p>还有一个内存分配的时候并发的问题：因为在实际中，创建对象是很频繁的，作为虚拟机来说，就必须要保证线程安全。jvm采用两种方式来保证：<strong>CAS+失败重试</strong>和<strong>TLAB</strong>。</p>
+<p>​    CAS就是乐观锁，乐观锁就是不去显式加锁，假设每次没有冲突去执行某个操作，如果因为冲突失败就重试，jvm还在这个基础上采用了TLAB方式，TLAB是jvm会预先为每个线程在Eden区分配一块内存，在给线程中的对象分配内存时，首先在TLAB区分配，如果对象大于TLAB的剩余内存或TLAB用尽时，再采用CAS+失败重试的方式去分配。</p>
+<h4 id="3-初始化零值"><a href="#3-初始化零值" class="headerlink" title="3.初始化零值"></a>3.初始化零值</h4><p>分配完内存后，jvm要对分配到的内存空间初始化，这就保证了对象的字段可以不用赋初值就能直接使用。</p>
+<h4 id="4-设置对象头"><a href="#4-设置对象头" class="headerlink" title="4.设置对象头"></a>4.设置对象头</h4><p>初始化零值完成之后，虚拟机要对对象进行必要的设置，例如这个对象是那个类的实例、如何才能找到类的元数据信息、对象的哈希吗、对象的 GC 分代年龄等信息。 这些信息存放在对象头中。另外，根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
+<h4 id="5-执行-init-方法"><a href="#5-执行-init-方法" class="headerlink" title="5.执行 init 方法"></a>5.执行 init 方法</h4><p>上面四步完成后，从jvm的角度来说，一个对象已经创建完成了，但从程序角度来说，对象创建才刚开始，init方法还未执行，所有字段值都为零，说白了，就是根据所写程序来对字段赋值进行初始化。</p>
+<p>额外的知识点：<strong>对象的内存布局</strong>   三部分：<strong>对象头</strong>、<strong>实例数据</strong>和<strong>对齐填充</strong></p>
+<p>​    对象头包括两部分信息<strong>，</strong>第一部分用于存储对象自身的自身运行时数据（哈希码、GC分代年龄、锁状态标志等等），另一部分是类型指针，即对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是那个类的实例。</p>
+<p>​    实例数据部分是对象真正存储的有效信息，也是在程序中所定义的各种类型的字段内容。</p>
+<p>​    对齐填充部分不是必然存在的，也没有什么特别的含义，仅仅起占位作用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" data-id="ck85qcw4b000ldg83h7epec8i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          用一个例子来解释ThreadLocal
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于工厂设计模式的问题（反射机制）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
