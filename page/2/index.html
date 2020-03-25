@@ -1,470 +1,302 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Hexo"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://yoursite.com"/>
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
+
+  <!-- Site Title -->
+  <title>Hexo</title>
+
+  <!-- Bootstrap CSS -->
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Hexo</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-20180303-探究一下volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
-  <time datetime="2018-03-02T16:00:00.000Z" itemprop="datePublished">2018-03-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/">探究一下volatile关键字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+<!-- Home Page Post List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
       
-        <h1 id="探究一下volatile关键字"><a href="#探究一下volatile关键字" class="headerlink" title="探究一下volatile关键字"></a>探究一下volatile关键字</h1><p>​    之前一直以为volatile是能够保证线程安全的，后来才发现并不能，查阅资料后对volatile关键字有了更深的理解，所以今天写篇文章来探究并记录一下。</p>
-<p>​    什么是volatile关键字，Java为什么要提供这个关键字，有什么用。简而言之，volatile修饰的变量对其他线程来说是立即可见的，并且对此变量操作的指令不会发生重排序。这是它的两大主要特征。这里提到了两个词：可见和重排序。什么是可见？在多线程操作里，每个线程从主存中读取到的<strong>共享变量</strong>的值总是最新的，乍一看，会觉得volatile是能够保证线程安全的，但其实不是，后面会讲到。那么什么是重排序？在执行一段程序的时候，处理器为了提高执行效率，会优化代码，不会按你写的代码的顺序来执行，但它会保证程序的最终结果不变，这就是指令重排序，还有一点就是重排序会考虑代码上下文的依赖，比如下一行指令会用到上一行指令的结果，那么这两行指令就不会被重排序。</p>
-<h4 id="可见性是怎么实现的"><a href="#可见性是怎么实现的" class="headerlink" title="可见性是怎么实现的"></a>可见性是怎么实现的</h4><p>在说这个之前，先来了解几个概念。</p>
-<p><strong>1.CPU缓存</strong>：我们都知道CPU的运算速度极快，而CPU读写内存的速度比起其运算速度很慢，所以为了弥补这种缺陷，在内存和CPU中间加入了高速缓存和寄存器，以此来匹配CPU的高速度。</p>
-<p><strong>2.工作内存</strong>：作为开发人员也不可能去控制线程对高速缓存的同步，所以Java有一套机制：每个线程运行起来都会有自己工作内存，这个可以类比到多核计算机的每个CPU的高速缓存，高速缓存从内存里读写数据，同样的，每个线程的工作内存从主内存里读写数据，不过，两个主内存可不一样，前面那个是计算机的物理内存，后面那个是为jvm分配的内存，也可以理解成共享数据区。</p>
-<p><strong>3.缓存行</strong>：CPU中的缓存是分段的，一段对应一个存储空间，称为缓存行，缓存行是CPU缓存中可分配的最小存储单元。</p>
-<p><strong>4.总线锁</strong>：对总线进行加锁。当一个核对缓存中的变量进行操作时，就会对总线加一个lock#锁，其他核看到总线加锁了，就无法再去读取内存中的数据了。</p>
-<p><strong>5.缓存一致性协议</strong>：总线锁的这种解决缓存不一致的方式有一个很大的缺点：效率低下。所以后来就出现了缓存一致性协议：当一个核要修改自己缓存中的变量时（这个变量是其他核共享的，每个核的缓存都有这个变量），其他核嗅探到这个核的修改情况，就会强制的将自己的缓存变量置为无效。当该处理器再访问此变量的时候，就会去主存读取。其中最著名的就是MESI协议。</p>
-<p>​    当一个变量被volatile修饰时，在编译时会在指令前加一个lock汇编指令，处理器遇到这个lock时，会检查数据所在的区域，如果此数据在处理器的缓存中，则会锁住此缓存，处理完后把数据写回主存中，并采用缓存一致性协议来保证各处理器的缓存一致。</p>
-<p>​    说到这里，你就会明白volatile的可见性是怎么保证的了吧</p>
-<h4 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h4><p>在多线程编程的三个特性中，有序性算是比较重要的了，如果不保证有序性，那么在经过指令重排序后，就可能会输出一些非法的结果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Main obj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Main <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>.getClass()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obj == <span class="keyword">null</span>) &#123;</span><br><span class="line">                obj = <span class="keyword">new</span> Main();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <div class="post-item-wrapper">
+  <a href="/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="post-title">
+      探究一下volatile关键字
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-03-03</div>
+      <div class="categories">
+        
+          
 
-<p>一般来说，new 操作会执行三个操作</p>
-<ol>
-<li><p>分配内存</p>
-</li>
-<li><p>初始化内存</p>
-</li>
-<li><p>将引用执行内存，返回引用</p>
-</li>
-</ol>
-<p>如果不加volatile的话，2.3步可能会发生重排序，导致其他线程返回的是一个只分配了内存但没有进行初始化的引用对象。</p>
-<h4 id="volatile保证线程安全吗"><a href="#volatile保证线程安全吗" class="headerlink" title="volatile保证线程安全吗"></a>volatile保证线程安全吗</h4><p>答案是否定的，原因就是volatile不能保证原子性。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc = <span class="number">0</span>;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        inc++;</span><br><span class="line">    &#125;     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)</span><br><span class="line">                        test.increase();</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;.start();</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">while</span>(Thread.activeCount()&gt;<span class="number">1</span>)  <span class="comment">//保证前面的线程都执行完</span></span><br><span class="line">            Thread.yield();</span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a href="/categories/java/">java</a>
 
-<p>​    最后结果不是10000，是一个小于10000的数，为什么？因为inc++不是一个原子操作，是一个读、修改、写回的复合操作。比如线程1和线程2开始读取的inc都是10，然后线程1阻塞，线程2进行自增操作，将inc修改为11，写回主存，然后线程1再进行自增，此时线程1读取的inc是10，自增写回，两次自增操作后结果还是11。这是你可能会有疑问了，不是一个线程修改变量后会导致其他线程的缓存无效吗？对，没错，可是这里线程1已经早都执行了inc++操作了，只是读取完之后阻塞了，你再进行自增不可能再读一次数据吧，就算有可见性也没用，可见性来的太晚了，读这个原子操作已经结束了，在一个操作里面（不管是原子操作还是符合操作），都只能读取一次值，你得保证这个自增操作往下顺序执行吧。那么如果是另一种情况：线程1还没有执行inc++，没有读取inc，它的缓存里inc还是10，线程2执行了inc++，修改了inc，那么就会置线程1缓存行的inc无效，线程1进行inc++的时候发现自己的缓存无效了，就会从主存中读取新值，更新自己的缓存。这下明白了吧。</p>
-<p>​    总结一句话：<strong>volatile对单个变量的读写具有原子性，比如赋值操作，不依赖当前值或其他变量；对变量的复合操作不具有原子性，比如自增操作i++、i+=3等等。</strong></p>
-<p><strong>保证原子性怎么做？用synchronized、lock、AtomicInteger</strong></p>
-<p>用volatile实现读写锁</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 可见性保证最新的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 直接加锁保证对依赖当前值的操作具有原子性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
 
-<p><strong>什么时候用volatile？一般会用在状态标记上，保证flag总是最新的。</strong></p>
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/01/24/20180124-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="post-title">
+      单例模式的三种线程安全的实现
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-01-24</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/java/">java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/01/23/20180123-%E6%8E%A2%E8%AE%A8%E4%B8%80%E4%B8%8Bjava%E5%86%85%E9%83%A8%E7%B1%BB/" class="post-title">
+      探讨一下java内部类
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-01-23</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/java/">java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2017/11/03/20171103-java%E6%B7%B1%E5%85%8B%E9%9A%86%E4%B8%8E%E6%B5%85%E5%85%8B%E9%9A%86/" class="post-title">
+      java深克隆与浅克隆
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2017-11-03</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/java/">java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2017/04/11/20170411-%E5%85%B3%E4%BA%8Edubbo%E7%9A%84%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title">
+      关于dubbo的常见的问题
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2017-04-11</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/" data-id="ck85qcw48000ddg834w215517" class="article-share-link">Share</a>
-      
-      
-    </footer>
   </div>
-  
-</article>
+</div>
 
-
-  
-    <article id="post-20180124-单例模式的三种线程安全的实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/24/20180124-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="article-date">
-  <time datetime="2018-01-23T16:00:00.000Z" itemprop="datePublished">2018-01-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/20180124-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/">单例模式的三种线程安全的实现</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="单例模式的三种线程安全的实现"><a href="#单例模式的三种线程安全的实现" class="headerlink" title="单例模式的三种线程安全的实现"></a>单例模式的三种线程安全的实现</h1><h4 id="第一种：双重检查机制"><a href="#第一种：双重检查机制" class="headerlink" title="第一种：双重检查机制"></a>第一种：双重检查机制</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 私有构造</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton single = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 双重检查</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (single == <span class="keyword">null</span>) &#123; <span class="comment">//1</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (single == <span class="keyword">null</span>) &#123;  <span class="comment">//2</span></span><br><span class="line">                    single = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>解释一下，如果去掉//1处的判断，那么每个线程都会在同步代码块中进行非空验证，这大大的降低了效率，所以在外层加个判断，如果非空，则直接返回引用。如果去掉//2处的判断，那么可能就会出现创建多个实例的情况，因为在同步代码块里没有再进行验证，而我们的目的是返回一个实例。</p>
-<h4 id="第二种：使用静态内部类来实现"><a href="#第二种：使用静态内部类来实现" class="headerlink" title="第二种：使用静态内部类来实现"></a>第二种：使用静态内部类来实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonIniti</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">SingletonIniti</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> SingletonIniti INSTANCE = newSingletonIniti();</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonIniti <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> SingletonHolder.INSTANCE;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在调用getInstance()方法的时候，jvm会加载SingletonHolder这个类，同时也会初始化他的静态域，由于是静态的，jvm只会初始化一次，由虚拟机来保证他的线程安全。</p>
-<h4 id="第三种：使用ThreadLocal实现"><a href="#第三种：使用ThreadLocal实现" class="headerlink" title="第三种：使用ThreadLocal实现"></a>第三种：使用ThreadLocal实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal perThreadInstance = <span class="keyword">new</span> ThreadLocal();  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton ;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton  <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span> (perThreadInstance.get() == <span class="keyword">null</span>)&#123;  </span><br><span class="line">            <span class="comment">// 每个线程第一次都会调用  </span></span><br><span class="line">            createInstance();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> singleton;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span>  <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">createInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;  </span><br><span class="line">            <span class="keyword">if</span> (singleton == <span class="keyword">null</span>)&#123;  </span><br><span class="line">                singleton = <span class="keyword">new</span> Singleton();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        perThreadInstance.set(perThreadInstance);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    借助于ThreadLocal，将临界资源（需要同步的资源）线程局部化，具体到本例就是将双重检测的第一层检测条件 if (instance == null) 转换为了线程局部范围内来作。这里的ThreadLocal也只是用作标示而已，用来标示每个线程是否已访问过，如果访问过，则不再需要走同步块，这样就提高了一定的效率。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/20180124-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/" data-id="ck85qcw400003dg836e3x9sz8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180123-探讨一下java内部类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/23/20180123-%E6%8E%A2%E8%AE%A8%E4%B8%80%E4%B8%8Bjava%E5%86%85%E9%83%A8%E7%B1%BB/" class="article-date">
-  <time datetime="2018-01-22T16:00:00.000Z" itemprop="datePublished">2018-01-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/23/20180123-%E6%8E%A2%E8%AE%A8%E4%B8%80%E4%B8%8Bjava%E5%86%85%E9%83%A8%E7%B1%BB/">探讨一下java内部类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="探讨一下Java内部类"><a href="#探讨一下Java内部类" class="headerlink" title="探讨一下Java内部类"></a>探讨一下Java内部类</h1><p>​    java内部类分为四种：成员内部类，局部内部类，匿名内部类以及静态内部类。内部类可以定义在方法中，也可以定义在类中。为什么要使用内部类呢？曾经在一本书中看到果这样一句话：<strong>每个内部类都能独立的继承一个实现，所以无论外部类有没有继承或实现，对于内部类都没有影响</strong>。这表明内部类的最大的作用就是能解决java多重继承的缺陷，因为有时候无法用接口来解决一些问题。</p>
-<p>​    其实就我个人而言，用的最多的还是匿名内部类，因为代码中常常需要做一些事件监听，常见的就是线程的内部实现。</p>
-<h4 id="1-成员内部类"><a href="#1-成员内部类" class="headerlink" title="1.成员内部类"></a>1.成员内部类</h4><p>关于成员内部类有这么几个规则：</p>
-<p>1.<strong>成员内部类可以无条件的访问外围类的所有成员属性和成员方法，包括private成员和静态成员</strong>。这是因为在创建一个外部类的内部类对象的时候，内部类对象会捕获一个指向外部类对象的引用，这样内部类对象就可以无缝访问外部类的所有成员。另外这个规则对其他类型的内部类也都适用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name ;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">InnerClass</span><span class="params">()</span></span>&#123;</span><br><span class="line">            name = <span class="string">"mwx"</span>;</span><br><span class="line">            age = <span class="number">21</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"name:"</span> + getName() +<span class="string">";age"</span> + getAge());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OuterClass outerClass = <span class="keyword">new</span> OuterClass();</span><br><span class="line">        OuterClass.InnerClass innerClass = outerClass.<span class="keyword">new</span> InnerClass();</span><br><span class="line">        innerClass.print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------</span><br><span class="line">Output：</span><br><span class="line">name：print;age:<span class="number">21</span></span><br></pre></td></tr></table></figure>
-
-<p>2.<strong>成员内部类中不能有任何static的变量和方法</strong>。这是因为一个类在加载的时候会预先加载静态变量，静态块以及静态方法，接下来才会创建对象，成员内部类其实就是外部类的成员，他并不随外部类一起加载，只有实例化外部类后才会加载，这就造成一个问题：jvm想要操作内部类的static成员，然而这时内部类尚未加载，这显然是矛盾的。</p>
-<p>3.<strong>成员内部类如果要访问外部类的同名成员时，需要按</strong> <code>外部类.this.成员变量/成员方法</code> <strong>这个形式来访问</strong>。不过在实际开发中最好不要出现内部类和外部类有同名成员的情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tes</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">out</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"内部类的a值："</span> + a);</span><br><span class="line">            System.out.println(<span class="string">"外部类的a值："</span> + Test.<span class="keyword">this</span>.a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Tes().out();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Test();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.<strong>要在外部类中访问成员内部类的成员，必须先创建一个成员内部类的对象，再通过这个对象的引用来访问。并且要创建一个内部类的对象，前提是必须有一个外部类的对象</strong>。创建一个成员内部类对象有以下两种方式：</p>
-<p>(1).<code>Outter outter = new Outter();Outter.Inner inner = outter.new Inner();</code></p>
-<p>(2)<code>Outter.Inner inner = outter.getInnerInstance();</code></p>
-<p>5.<strong>成员内部类可以有private、protected、public等访问权限</strong>。前面说过了，成员内部类其实就是外部类的一个成员，跟其他成员一样.。</p>
-<h4 id="2-局部内部类"><a href="#2-局部内部类" class="headerlink" title="2.局部内部类"></a>2.局部内部类</h4><p>局部内部类是定义在方法内的，那为什么要有个局部内部类呢？一般来说，我们在某个方法中希望有一个类来辅助我们解决问题，但又不希望这个类在其他地方可用，所以就产生了局部内部类。注意一点：局部内部类就像方法内的一个局部变量一样，是不能有public、protected、private以及static修饰符的。关于局部内部类用的很少，这里就不举例了。</p>
-<h4 id="3-匿名内部类"><a href="#3-匿名内部类" class="headerlink" title="3.匿名内部类"></a>3.匿名内部类</h4><p>匿名内部类我们随处可见，就是没有名字的内部类。</p>
-<p>1.经常被用来编写事件监听代码。</p>
-<p>2.如果一个内部类在整个操作中只使用一次的话，就可以定义为匿名内部类。</p>
-<p>3.匿名内部类是没有访问修饰符的。</p>
-<p>4.匿名内部类是没有构造方法的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClassTest</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Thread test = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</span><br><span class="line">					System.out.println(i);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>另外，还有一点要注意：<strong>如果匿名内部类要用到所在方法的形参时，那这个形参必须是final的</strong>。</p>
-<p>还是上面这个例子，不过稍微改一下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClassTest</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">final</span> String str)</span> </span>&#123;</span><br><span class="line">		Thread test = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</span><br><span class="line">					System.out.println(i+str);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>为什么要给形参加final，因为当test方法执行结束后，形参str的生命周期也就结束了，而此时Thread的生命周期可能还没有结束，那么在run方法中访问str就不行了，但又想实现这样的效果，怎么办呢？Java使用拷贝的方式来实现。其实内部类并不直接使用这个形参，而是通过自己的构造器对这个形参做了一个备份，调用时就调用自己的备份的变量，所以此时为了解决这个形参的数据不一致问题，就要给形参加final，让其引用不可变。</p>
-<h4 id="4-静态内部类"><a href="#4-静态内部类" class="headerlink" title="4.静态内部类"></a>4.静态内部类</h4><p>使用static修饰的内部类我们成为静态内部类，也叫嵌套内部类，静态内部类跟非静态内部类有一个很大的区别：非静态内部类在编译完成后会隐含的保存一个指向外部类对象的引用，而静态内部类没有，这就意味着静态内部类对象的创建不需要依赖于外部类，并且静态内部类中不能使用外围类的非static变量和方法，静态内部类可以有静态变量和方法。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/23/20180123-%E6%8E%A2%E8%AE%A8%E4%B8%80%E4%B8%8Bjava%E5%86%85%E9%83%A8%E7%B1%BB/" data-id="ck85qcw410004dg83c3jdg4g0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20171103-java深克隆与浅克隆" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/03/20171103-java%E6%B7%B1%E5%85%8B%E9%9A%86%E4%B8%8E%E6%B5%85%E5%85%8B%E9%9A%86/" class="article-date">
-  <time datetime="2017-11-02T16:00:00.000Z" itemprop="datePublished">2017-11-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/03/20171103-java%E6%B7%B1%E5%85%8B%E9%9A%86%E4%B8%8E%E6%B5%85%E5%85%8B%E9%9A%86/">java深克隆与浅克隆</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="java深克隆与浅克隆"><a href="#java深克隆与浅克隆" class="headerlink" title="java深克隆与浅克隆"></a>java深克隆与浅克隆</h1><p>​    克隆就是快速获得一个对象的副本，不要把克隆想成简单的复制引用，因为一个对象有很多的属性，你要把这个引用的属性的值取出来再赋给新引用的属性可不容易，所以java给我们提供了一个方法：clone()。要实现这个方法必须得先继承一个接口Cloneable.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Address address;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Address <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setProfessor</span><span class="params">(Address address)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Student [name="</span> + name + <span class="string">", age="</span> + age + <span class="string">", address="</span></span><br><span class="line">                + address + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里有一个Address的引用，先放在这。如果对Person进行克隆调用clone方法，得到一个新的Person对象p2，修改p2的属性值，再将两个对象分别打印，可以看到p2的非引用类型的字段的值改了，但p1引用类型字段address的值却是p2修改后的值，这表明p2的修改会影响p1。这显然不行，我们需要的一个完全隔离的新对象，那么这时候就需要深克隆了。</p>
-<p>所谓深克隆就是让引用类型的那个类再实现clone方法，并继承Cloneable接口，如果这个类还有一个引用类型的字段，就再实现clone方法，递归的去复制。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String number;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> info;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNumber</span><span class="params">(String number)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.number = number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> info;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setInfo</span><span class="params">(<span class="keyword">int</span> info)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.info = info;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Address [number="</span> + number + <span class="string">", info="</span> + info + <span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样就得到一个完全隔离的对象了</p>
-<p>另外，实现深克隆还有一种方式，就是序列化。很简单，就是将对象序列化为二进制码，然后再反序列化为对象，得到的对象就是一个新的对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line">ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream(); </span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(baos); </span><br><span class="line">oos.writeObject(<span class="keyword">this</span>);</span><br><span class="line"><span class="comment">//反序列化</span></span><br><span class="line">ByteArrayInputStream bais = <span class="keyword">new</span> ByteArrayInputStream(baos.toByteArray()); ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(bais); </span><br><span class="line">outer = (Outer) ois.readObject();</span><br></pre></td></tr></table></figure>
-
-<p>这里再说一下js的深克隆，因为有时候也会用到，只说其中一种常用的方式，还有其他方式，可以自行搜索。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> _obj = <span class="built_in">JSON</span>.stringify(obj),</span><br><span class="line">        objClone = <span class="built_in">JSON</span>.parse(_obj);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/03/20171103-java%E6%B7%B1%E5%85%8B%E9%9A%86%E4%B8%8E%E6%B5%85%E5%85%8B%E9%9A%86/" data-id="ck85qcw3q0000dg83d6swe5sj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20170411-关于dubbo的常见的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/11/20170411-%E5%85%B3%E4%BA%8Edubbo%E7%9A%84%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2017-04-10T16:00:00.000Z" itemprop="datePublished">2017-04-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/20170411-%E5%85%B3%E4%BA%8Edubbo%E7%9A%84%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/">关于dubbo的常见的问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于dubbo的常见的问题"><a href="#关于dubbo的常见的问题" class="headerlink" title="关于dubbo的常见的问题"></a>关于dubbo的常见的问题</h1><h4 id="1-A-child-container-failed-during-start"><a href="#1-A-child-container-failed-during-start" class="headerlink" title="1.A child container failed during start"></a>1.A child container failed during start</h4><p>出现这个错误时一定不要纠结于这句话，顺着这句话往下找，这句话从来都不是问题的根本原因，比如我在启动服务的时候出现了如下错误：</p>
-<p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/29/d23190a940c3a22a809af8d037a0ac58.png" alt=""></p>
-<p>顺着往下找，看到<code>org.springframework.web.SpringServletContainerInitializer cannot be cast to javax.servlet.ServletContainerInitializer</code> 这意思是 <code>javax.servlet</code> 出现了问题，可能原因是这个包版本问题或者包冲突了，那么就在pom.xml里找，一步步排查之后，发现是dubbo这个jar包本身就有依赖<code>javax.servlet</code> 这个包，我的pom文件里也有这个依赖，那就用<code>&lt;exclusions&gt;</code> 标签把dubbo的<code>javax.servlet</code> 排除掉。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>dubbo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>ok,问题解决。</p>
-<h4 id="2-nested-exception-is-java-lang-NullPointerException-with-root-cause"><a href="#2-nested-exception-is-java-lang-NullPointerException-with-root-cause" class="headerlink" title="2.nested exception is java.lang.NullPointerException] with root cause"></a>2.nested exception is java.lang.NullPointerException] with root cause</h4><p>1.先用<code>telnet ip 端口</code> 命令进行调试，用ls+invoke命令调用方法，如果正常，再检查消费端。</p>
-<p>2.检查你的消费端controller，很可能是忘了加<code>@Reference</code> 注解。</p>
-<h4 id="3-org-I0Itec-zkclient-exception-ZkTimeoutException-Unable-to-connect-to-zookeeper-server-within-timeout-5000"><a href="#3-org-I0Itec-zkclient-exception-ZkTimeoutException-Unable-to-connect-to-zookeeper-server-within-timeout-5000" class="headerlink" title="3.org.I0Itec.zkclient.exception.ZkTimeoutException: Unable to connect to zookeeper server within timeout: 5000"></a>3.org.I0Itec.zkclient.exception.ZkTimeoutException: Unable to connect to zookeeper server within timeout: 5000</h4><p>连接zookeeper超时，可能是本地代码的问题，也可能是zookeeper的问题</p>
-<p>1.检查你的配置文件，比如<code>applicationContext-service.xml</code> 和<code>springmvc.xml</code> ，查看连接zookeeper的ip或者端口是否正确。</p>
-<p>2.重启zookeeper试试。</p>
-<p>3.可能是端口没有开放，用<code>iptables -I INPUT -p tcp --dport 2181 -j ACCEPT</code>  来开放指定端口，如果是阿里云服务器的话直接去阿里云中心开。</p>
-<p>后续再补充</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/11/20170411-%E5%85%B3%E4%BA%8Edubbo%E7%9A%84%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck85qcw3w0001dg836men1oio" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/03/24/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
-          </li>
-        
+<!-- Pagination -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      <ul class="pagination">
+          
+              <li class="previous">
+                <a href="/">
+                  <span class="symbol-left">&lt;</span>
+                  <span>PREV</span>
+                </a>
+              </li>
+          
+          
       </ul>
     </div>
   </div>
+</div>
 
-  
-</aside>
-        
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <!-- After Footer Scripts -->
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/highlight.pack.js"></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
+

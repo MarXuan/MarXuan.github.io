@@ -1,98 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>探究一下volatile关键字 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="探究一下volatile关键字​    之前一直以为volatile是能够保证线程安全的，后来才发现并不能，查阅资料后对volatile关键字有了更深的理解，所以今天写篇文章来探究并记录一下。 ​    什么是volatile关键字，Java为什么要提供这个关键字，有什么用。简而言之，volatile修饰的变量对其他线程来说是立即可见的，并且对此变量操作的指令不会发生重排序。这是它的两大主要特征。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="探究一下volatile关键字">
-<meta property="og:url" content="http://yoursite.com/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="探究一下volatile关键字​    之前一直以为volatile是能够保证线程安全的，后来才发现并不能，查阅资料后对volatile关键字有了更深的理解，所以今天写篇文章来探究并记录一下。 ​    什么是volatile关键字，Java为什么要提供这个关键字，有什么用。简而言之，volatile修饰的变量对其他线程来说是立即可见的，并且对此变量操作的指令不会发生重排序。这是它的两大主要特征。">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2018-03-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-02-02T08:38:53.888Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="探究一下volatile关键字"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
+
+  <!-- Site Title -->
+  <title>Hexo</title>
+
+  <!-- Bootstrap CSS -->
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">探究一下volatile关键字</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-20180303-探究一下volatile关键字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
-  <time datetime="2018-03-02T16:00:00.000Z" itemprop="datePublished">2018-03-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-03-03</span>
+            <span class="time">10:26:04</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/java/">java</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
         
-  
-    <h1 class="article-title" itemprop="name">
-      探究一下volatile关键字
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="探究一下volatile关键字"><a href="#探究一下volatile关键字" class="headerlink" title="探究一下volatile关键字"></a>探究一下volatile关键字</h1><p>​    之前一直以为volatile是能够保证线程安全的，后来才发现并不能，查阅资料后对volatile关键字有了更深的理解，所以今天写篇文章来探究并记录一下。</p>
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="探究一下volatile关键字"><a href="#探究一下volatile关键字" class="headerlink" title="探究一下volatile关键字"></a>探究一下volatile关键字</h1><p>​    之前一直以为volatile是能够保证线程安全的，后来才发现并不能，查阅资料后对volatile关键字有了更深的理解，所以今天写篇文章来探究并记录一下。</p>
 <p>​    什么是volatile关键字，Java为什么要提供这个关键字，有什么用。简而言之，volatile修饰的变量对其他线程来说是立即可见的，并且对此变量操作的指令不会发生重排序。这是它的两大主要特征。这里提到了两个词：可见和重排序。什么是可见？在多线程操作里，每个线程从主存中读取到的<strong>共享变量</strong>的值总是最新的，乍一看，会觉得volatile是能够保证线程安全的，但其实不是，后面会讲到。那么什么是重排序？在执行一段程序的时候，处理器为了提高执行效率，会优化代码，不会按你写的代码的顺序来执行，但它会保证程序的最终结果不变，这就是指令重排序，还有一点就是重排序会考虑代码上下文的依赖，比如下一行指令会用到上一行指令的结果，那么这两行指令就不会被重排序。</p>
 <h4 id="可见性是怎么实现的"><a href="#可见性是怎么实现的" class="headerlink" title="可见性是怎么实现的"></a>可见性是怎么实现的</h4><p>在说这个之前，先来了解几个概念。</p>
 <p><strong>1.CPU缓存</strong>：我们都知道CPU的运算速度极快，而CPU读写内存的速度比起其运算速度很慢，所以为了弥补这种缺陷，在内存和CPU中间加入了高速缓存和寄存器，以此来匹配CPU的高速度。</p>
@@ -126,137 +152,44 @@
 
 <p><strong>什么时候用volatile？一般会用在状态标记上，保证flag总是最新的。</strong></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/03/20180303-%E6%8E%A2%E7%A9%B6%E4%B8%80%E4%B8%8Bvolatile%E5%85%B3%E9%94%AE%E5%AD%97/" data-id="ck85qcw48000ddg834w215517" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/05/12/20180512-synchronized%E4%BD%9C%E7%94%A8%E5%9C%A8%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95%E4%B8%8A%E8%B7%9F%E4%BD%9C%E7%94%A8%E5%9C%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%8A%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          synchronized作用在普通方法上跟作用在静态方法上的区别
-        
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/2018/01/24/20180124-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">单例模式的三种线程安全的实现</div>
-    </a>
-  
-</nav>
-
-  
+    </div>
+  </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/03/24/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <!-- After Footer Scripts -->
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/highlight.pack.js"></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
+

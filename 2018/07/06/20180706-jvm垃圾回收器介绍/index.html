@@ -1,101 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>jvm垃圾回收器介绍 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jvm垃圾回收器介绍介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。 1.Serial（串行）收集器这是一个单线程的收集器">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jvm垃圾回收器介绍">
-<meta property="og:url" content="http://yoursite.com/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jvm垃圾回收器介绍介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。 1.Serial（串行）收集器这是一个单线程的收集器">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png">
-<meta property="og:image" content="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/3dac243340b2ba1a80694baf023e7710.png">
-<meta property="article:published_time" content="2018-07-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2018-11-16T10:15:21.102Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png">
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="jvm垃圾回收器介绍"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
+
+  <!-- Site Title -->
+  <title>Hexo</title>
+
+  <!-- Bootstrap CSS -->
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">jvm垃圾回收器介绍</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-20180706-jvm垃圾回收器介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" class="article-date">
-  <time datetime="2018-07-05T16:00:00.000Z" itemprop="datePublished">2018-07-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-06</span>
+            <span class="time">10:26:04</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/jvm/">jvm</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
         
-  
-    <h1 class="article-title" itemprop="name">
-      jvm垃圾回收器介绍
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="jvm垃圾回收器介绍"><a href="#jvm垃圾回收器介绍" class="headerlink" title="jvm垃圾回收器介绍"></a>jvm垃圾回收器介绍</h1><p>介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。</p>
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="jvm垃圾回收器介绍"><a href="#jvm垃圾回收器介绍" class="headerlink" title="jvm垃圾回收器介绍"></a>jvm垃圾回收器介绍</h1><p>介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。</p>
 <h4 id="1-Serial（串行）收集器"><a href="#1-Serial（串行）收集器" class="headerlink" title="1.Serial（串行）收集器"></a>1.Serial（串行）收集器</h4><p>这是一个单线程的收集器，新生代收集器，采用复制算法，意味着只会有一条GC线程区完成垃圾回收，并且在GC的时候必须暂停其他所有的用户线程，就是STW（Stop the world），直到它收集结束。很明显，STW越长，对用户的体验就越差，所以这个收集器不适合用在与用户交互比较多的地方（比如B/S），它适合运行在Client模式下的程序，因为没有多线程的上下文交互的开销。我们可以设置-XX:+UseSerialGC参数来使用这个收集器，这也是jvm在Client模式下的默认值。</p>
 <p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png" alt=""></p>
 <h4 id="2-Serial-Old收集器"><a href="#2-Serial-Old收集器" class="headerlink" title="2.Serial Old收集器"></a>2.Serial Old收集器</h4><p>Serial的老年代收集器，采用标记-整理算法，单线程，在GC的时候也需要暂停其他用户线程，在jdk1.5之前与Parallel收集器配合使用。</p>
@@ -115,137 +138,44 @@
 <h5 id="并发重设"><a href="#并发重设" class="headerlink" title="并发重设"></a>并发重设</h5><p>这个阶段并发执行，重新设置CMS算法内部的数据结构，准备下一个CMS生命周期的使用。</p>
 <h4 id="7-G1收集器"><a href="#7-G1收集器" class="headerlink" title="7.G1收集器"></a>7.G1收集器</h4><p>G1 (Garbage-First)是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足GC停顿时间要求的同时,还具备高吞吐量性能特征。它与CMS收集器相比有以下特点：空间整合和可预测停顿。可预测停顿是G1相对于CMS的一个大优势，降低停顿时间是G1和ＣＭＳ共同的关注点，但Ｇ１除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内。它主要分为四个步骤：初始标记，并发标记，最终标记，筛选回收。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" data-id="ck85qcw49000gdg83g4208851" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/07/10/20180710-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          自定义类加载器
-        
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/2018/07/05/20180705-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">动态代理设计模式</div>
-    </a>
-  
-</nav>
-
-  
+    </div>
+  </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/03/24/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <!-- After Footer Scripts -->
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/highlight.pack.js"></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
+

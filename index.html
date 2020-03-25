@@ -1,692 +1,444 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Hexo"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Hexo"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://yoursite.com"/>
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
+
+  <!-- Site Title -->
+  <title>Hexo</title>
+
+  <!-- Bootstrap CSS -->
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Hexo</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/24/hello-world/" class="article-date">
-  <time datetime="2020-03-24T09:21:52.861Z" itemprop="datePublished">2020-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/hello-world/">Hello World</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+<!-- Home Page Post List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <div class="post-item-wrapper">
+  <a href="/2020/03/24/hello-world/" class="post-title">
+      Hello World
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2020-03-24</div>
+      <div class="categories">
+        
+          Uncategorized
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/" class="post-title">
+      用一个例子来解释ThreadLocal
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-11-10</div>
+      <div class="categories">
+        
+          
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<a href="/categories/Java/">Java</a>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" class="post-title">
+      jvm的对象创建
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-15</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/jvm/">jvm</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/" class="post-title">
+      关于工厂设计模式的问题（反射机制）
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-14</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/Java/">Java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="post-title">
+      volatile关键字与单例模式
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-12</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/Java/">Java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/10/20180710-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/" class="post-title">
+      自定义类加载器
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-10</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/Java/">Java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" class="post-title">
+      jvm垃圾回收器介绍
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-06</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/jvm/">jvm</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/05/20180705-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title">
+      动态代理设计模式
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-05</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/Java/">Java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/07/01/20180701-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="post-title">
+      垃圾回收算法
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-07-01</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/jvm/">jvm</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2018/05/12/20180512-synchronized%E4%BD%9C%E7%94%A8%E5%9C%A8%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95%E4%B8%8A%E8%B7%9F%E4%BD%9C%E7%94%A8%E5%9C%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%8A%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title">
+      synchronized作用在普通方法上跟作用在静态方法上的区别
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2018-05-12</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/java/">java</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">No Post Excerpt</div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        <div class="untagged">Untagged</div>
+      
+    </div>
+  </div>
+</div>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/hello-world/" data-id="ck85px8if0000m48328ajes0m" class="article-share-link">Share</a>
-      
-      
-    </footer>
   </div>
-  
-</article>
-
-
-  
-    <article id="post-20181110-用一个例子来解释ThreadLocal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/" class="article-date">
-  <time datetime="2018-11-10T05:48:25.000Z" itemprop="datePublished">2018-11-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="用一个例子来解释ThreadLocal"><a href="#用一个例子来解释ThreadLocal" class="headerlink" title="用一个例子来解释ThreadLocal"></a>用一个例子来解释ThreadLocal</h1><p>ThreadLocal叫线程本地变量，他为每个线程都创建了一个副本变量，每个线程都只能访问自己的副本变量。<br>我们直接用一个例子来解释ThreadLocal。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String note;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNote</span><span class="params">(String note)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.note = note;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNote</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> note;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageConsumer</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(Thread.currentThread().getName() + <span class="string">"..."</span> + Test20.msg.getNote());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test20</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Message msg;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">			Message msg = <span class="keyword">new</span> Message();</span><br><span class="line">			msg.setNote(<span class="string">"你好啊"</span>);</span><br><span class="line">			Test20.msg = msg;</span><br><span class="line">			<span class="keyword">new</span> MessageConsumer().print();</span><br><span class="line">		&#125;, <span class="string">"用户A"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">			Message msg = <span class="keyword">new</span> Message();</span><br><span class="line">			msg.setNote(<span class="string">"Hello"</span>);</span><br><span class="line">			Test20.msg = msg;</span><br><span class="line">			<span class="keyword">new</span> MessageConsumer().print();</span><br><span class="line">		&#125;, <span class="string">"用户B"</span>).start();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdn.net/20180904005756743?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01hMTU4Mzk0NTg3NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/7" alt=""></p>
-<p><img src="https://img-blog.csdn.net/20180904005830170?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01hMTU4Mzk0NTg3NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p><img src="https://img-blog.csdn.net/20180904005839460?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01hMTU4Mzk0NTg3NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>执行三次，得到三个结果，而且两个线程打印出来的结果竟都是一样的，这就是变量没有同步的问题，我们来分析一下这个原因：两个或多个线程分别设置了Message信息，这里有一个全局数据区msg，这是线程共享的，用户A线程设置了信息，还没等它打印出来，用户B线程又设置了这个msg，导致后面的线程把前面的线程覆盖了，所以才会出现结果都相同的情况。这时就需要用ThreadLocal来设置一个线程本地变量，每个线程只能操作它自己的副本变量。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String note;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNote</span><span class="params">(String note)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.note = note;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNote</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> note;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageConsumer</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(Thread.currentThread().getName() + <span class="string">"..."</span> + MyUtil.get().getNote());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> ThreadLocal&lt;Message&gt; threadlocal = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Message msg)</span></span>&#123;</span><br><span class="line">		threadlocal.set(msg);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Message <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> threadlocal.get();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test20</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">			Message msg = <span class="keyword">new</span> Message();</span><br><span class="line">			msg.setNote(<span class="string">"你好啊"</span>);</span><br><span class="line">			MyUtil.set(msg);</span><br><span class="line">			<span class="keyword">new</span> MessageConsumer().print();</span><br><span class="line">		&#125;, <span class="string">"用户A"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">			Message msg = <span class="keyword">new</span> Message();</span><br><span class="line">			msg.setNote(<span class="string">"Hello"</span>);</span><br><span class="line">			MyUtil.set(msg);</span><br><span class="line">			<span class="keyword">new</span> MessageConsumer().print();</span><br><span class="line">		&#125;, <span class="string">"用户B"</span>).start();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdn.net/20180904011334939?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01hMTU4Mzk0NTg3NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>这样就实现了变量同步，每个线程只改变自己的数据。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/" data-id="ck85qcw4g000xdg837o8z3wev" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180715-jvm的对象创建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" class="article-date">
-  <time datetime="2018-07-14T16:00:00.000Z" itemprop="datePublished">2018-07-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="jvm的对象创建"><a href="#jvm的对象创建" class="headerlink" title="jvm的对象创建"></a>jvm的对象创建</h1><h4 id="1-类加载检查"><a href="#1-类加载检查" class="headerlink" title="1.类加载检查"></a>1.类加载检查</h4><p>jvm在遇到new这个关键字时，先会去检查new的这个指令的参数是否能在常量池中定位到这个类的符号引用，因为常量池分为两部分：字面量和符号引用，字面量就是字符串值、常量值、基本类型数据的值等，而符号引用里面就包括了类和结构的完全限定名、字段名称和描述符以及方法的名称和描述符。如果能定位到，就检查这个类是否已经被加载过或者解析过，如果没加载，那就先加载这个类，加载这块就是双亲委派模型。</p>
-<h4 id="2-分配内存"><a href="#2-分配内存" class="headerlink" title="2.分配内存"></a>2.分配内存</h4><p>new一个对象得分配内存，而对象所需的内存大小在类加载完后就已经确定。</p>
-<p>内存的分配方式有两种：<strong>指针碰撞</strong>和<strong>空闲列表</strong>。两种方式的原理：</p>
-<p>指针碰撞：用过的内存放到一边，没用过的放到另一边，然后有一个分界指针，向没用的内存方向移动到所需大小的位置即可。很明显，这种方式需要内存规整，所以是否选择这种方式取决于gc收集器的算法是不是“标记-整理”算法。</p>
-<p>空闲列表：jvm会维护一个可用的内存列表，分配内存时就选取一个足够大的内存进行分配。这种方式就不需要内存有多么规整，所以是否选择这种方式就取决于gc收集器的算法是不是“标记-清楚”算法。</p>
-<h5 id="内存分配并发问题"><a href="#内存分配并发问题" class="headerlink" title="内存分配并发问题"></a>内存分配并发问题</h5><p>还有一个内存分配的时候并发的问题：因为在实际中，创建对象是很频繁的，作为虚拟机来说，就必须要保证线程安全。jvm采用两种方式来保证：<strong>CAS+失败重试</strong>和<strong>TLAB</strong>。</p>
-<p>​    CAS就是乐观锁，乐观锁就是不去显式加锁，假设每次没有冲突去执行某个操作，如果因为冲突失败就重试，jvm还在这个基础上采用了TLAB方式，TLAB是jvm会预先为每个线程在Eden区分配一块内存，在给线程中的对象分配内存时，首先在TLAB区分配，如果对象大于TLAB的剩余内存或TLAB用尽时，再采用CAS+失败重试的方式去分配。</p>
-<h4 id="3-初始化零值"><a href="#3-初始化零值" class="headerlink" title="3.初始化零值"></a>3.初始化零值</h4><p>分配完内存后，jvm要对分配到的内存空间初始化，这就保证了对象的字段可以不用赋初值就能直接使用。</p>
-<h4 id="4-设置对象头"><a href="#4-设置对象头" class="headerlink" title="4.设置对象头"></a>4.设置对象头</h4><p>初始化零值完成之后，虚拟机要对对象进行必要的设置，例如这个对象是那个类的实例、如何才能找到类的元数据信息、对象的哈希吗、对象的 GC 分代年龄等信息。 这些信息存放在对象头中。另外，根据虚拟机当前运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。</p>
-<h4 id="5-执行-init-方法"><a href="#5-执行-init-方法" class="headerlink" title="5.执行 init 方法"></a>5.执行 init 方法</h4><p>上面四步完成后，从jvm的角度来说，一个对象已经创建完成了，但从程序角度来说，对象创建才刚开始，init方法还未执行，所有字段值都为零，说白了，就是根据所写程序来对字段赋值进行初始化。</p>
-<p>额外的知识点：<strong>对象的内存布局</strong>   三部分：<strong>对象头</strong>、<strong>实例数据</strong>和<strong>对齐填充</strong></p>
-<p>​    对象头包括两部分信息<strong>，</strong>第一部分用于存储对象自身的自身运行时数据（哈希码、GC分代年龄、锁状态标志等等），另一部分是类型指针，即对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是那个类的实例。</p>
-<p>​    实例数据部分是对象真正存储的有效信息，也是在程序中所定义的各种类型的字段内容。</p>
-<p>​    对齐填充部分不是必然存在的，也没有什么特别的含义，仅仅起占位作用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/" data-id="ck85qcw4b000ldg83h7epec8i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180714-关于工厂设计模式的问题（反射机制）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/" class="article-date">
-  <time datetime="2018-07-13T16:00:00.000Z" itemprop="datePublished">2018-07-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于工厂设计模式的问题（反射机制）"><a href="#关于工厂设计模式的问题（反射机制）" class="headerlink" title="关于工厂设计模式的问题（反射机制）"></a>关于工厂设计模式的问题（反射机制）</h1><p>首先来写一个传统的工厂：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IFruit</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple1</span> <span class="keyword">implements</span> <span class="title">IFruit</span></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃苹果"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span> <span class="keyword">implements</span> <span class="title">IFruit</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃橘子"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Factory</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IFruit <span class="title">getInstance</span><span class="params">(String classname)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="string">"apple"</span>.equals(classname))&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Apple();</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"orange"</span>.equals(classname))&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Orange();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test30</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		IFruit apple = Factory.getInstance(<span class="string">"apple"</span>);</span><br><span class="line">		apple.eat();</span><br><span class="line">		IFruit orange = Factory.getInstance(<span class="string">"orange"</span>);</span><br><span class="line">		orange.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如上述例子，利用传入的类名来得到相应的实例化对象，但这里是有厂类进行改造，例如个很重的问题：如果IFruit有十个乃至上百个实现类，我们就需要对工厂进行改造，例如上述例子中的orange。有多少个实现类就需要新多少对象，这在实际开发中是不现实的。<br>我们可以用反射来解决这个问题。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IFruit</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IMessage</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">IFruit</span></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃苹果"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessageImpl</span> <span class="keyword">implements</span> <span class="title">IMessage</span></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"message"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Factory</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Factory</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getInstance</span><span class="params">(String classname)</span></span>&#123;</span><br><span class="line">		T obj = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			obj = (T)Class.forName(classname).newInstance();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InstantiationException | IllegalAccessException | ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> obj;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test29</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		IFruit apple = Factory.getInstance(<span class="string">"java1_1.Apple"</span>);</span><br><span class="line">		apple.eat();</span><br><span class="line">		IMessage im = Factory.getInstance(<span class="string">"java1_1.MessageImpl"</span>);</span><br><span class="line">		im.print();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如上述代码，可以通过传入类名来动态的实例化对象，而不需要再加代码，还可以加入泛型来实现多个接口或抽象类的实例化。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/" data-id="ck85qcw4c000ndg836ygq8xct" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180712-volatile关键字与单例模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="article-date">
-  <time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished">2018-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="volatile关键字与单例模式"><a href="#volatile关键字与单例模式" class="headerlink" title="volatile关键字与单例模式"></a>volatile关键字与单例模式</h1><p>大家都知道，单例模式有两种，一种叫懒汉式，一种叫饿汉式，由于现在要说的是volatile与单例，所以就不用看饿汉式的单例了。先来看一个简单的懒汉式单例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"构造方法"</span>+Thread.currentThread().getName());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getIntance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test37</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread(()-&gt;&#123;Singleton.getIntance();&#125;,<span class="string">"A"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(()-&gt;&#123;Singleton.getIntance();&#125;,<span class="string">"B"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(()-&gt;&#123;Singleton.getIntance();&#125;,<span class="string">"C"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(()-&gt;&#123;Singleton.getIntance();&#125;,<span class="string">"D"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(()-&gt;&#123;Singleton.getIntance();&#125;,<span class="string">"E"</span>).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(()-&gt;&#123;Singleton.getIntance();&#125;,<span class="string">"F"</span>).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里启动了6个线程，看一下结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">构造方法A</span><br><span class="line">构造方法D</span><br><span class="line">构造方法B</span><br><span class="line">构造方法C</span><br></pre></td></tr></table></figure>
-
-<p>这里实例化了四个对象，不是单例吗？其实这是线程的不同步造成的，那解决这个问题的方法我们第一个就会想到加synchronized，加代码块或者加方法都行，来看一下改进后代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> Singleton <span class="title">getIntance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">			singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">构造方法A</span><br></pre></td></tr></table></figure>
-
-<p>这时候看起来问题是解决了，但又出现了一个性能上的问题：高并发下的时候一定会很慢，加锁肯定比不加锁要慢，那么这时候该怎么办呢，我们可以使用volatile关键字来处理问题。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"构造方法"</span>+Thread.currentThread().getName());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getIntance</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">synchronized</span> (Singleton<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(singleton == <span class="keyword">null</span>)&#123;</span><br><span class="line">				singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> singleton;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样，在某个线程进行实例化后，会保证singleton的更新对其他线程是立即可见的，而不会再去等待锁释放了，保证了高性能。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" data-id="ck85qcw4a000idg83euerf8f1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180710-自定义类加载器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/10/20180710-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/" class="article-date">
-  <time datetime="2018-07-09T16:00:00.000Z" itemprop="datePublished">2018-07-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/10/20180710-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">自定义类加载器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自定义类加载器"><a href="#自定义类加载器" class="headerlink" title="自定义类加载器"></a>自定义类加载器</h1><p>Java中类加载器系统有四层，自上往下为：</p>
-<pre><code>Bootstrap ClassLoader：引擎核心加载器，主要是加载系统程序类
-Extension ClassLoader：扩展类加载器，加载第三方程序类
-Application ClassLoader：加载classpath下的类
-Custom ClassLoader:加载自定义的类，可以自己选择加载路径</code></pre><p>前三个没什么好说的，主要来看一下怎么自己写一个加载器来加载自定义类：<br>首先再任意的目录下写一个Java文件，保证非CLASSPATH。然后将这个java文件进行编译得到class文件。然后就是对这个class文件进行加载，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span></span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 加载类的操作</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> classname 类名 </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> class对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> IOException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> Class&lt;?&gt; loadData(String classname) <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] classData = <span class="keyword">this</span>.loadClassData();</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.defineClass(classname, classData, <span class="number">0</span>, classData.length);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">byte</span>[] loadClassData() <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">		InputStream input = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"d:"</span>+File.separator+<span class="string">"H"</span>+File.separator+<span class="string">"Member.class"</span>));</span><br><span class="line">		ByteArrayOutputStream output = <span class="keyword">new</span> ByteArrayOutputStream();<span class="comment">//使用内存流来处理</span></span><br><span class="line">		<span class="keyword">byte</span>[] data = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">20</span>];</span><br><span class="line">		<span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>((temp = input.read(data)) != -<span class="number">1</span>)&#123;</span><br><span class="line">			output.write(data, <span class="number">0</span>, temp);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">byte</span>[] ret = output.toByteArray();</span><br><span class="line">		input.close();</span><br><span class="line">		output.close();</span><br><span class="line">		<span class="keyword">return</span> ret;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>采用ClassLoader类中的defineClass(String name,byte[] b,int off,int len)来查找类，然后我们来看一下当前的类加载器是什么：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Class&lt;?&gt; cls = <span class="keyword">new</span> MyClassLoader().loadData(<span class="string">"com.xatu.edu.Member"</span>);</span><br><span class="line">			System.out.println(cls.newInstance()); </span><br><span class="line">			System.out.println(cls.getClassLoader());</span><br><span class="line">			System.out.println(cls.getClassLoader().getParent());</span><br><span class="line">			System.out.println(cls.getClassLoader().getParent().getParent());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>结果如图：</p>
-<p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/11/ae5a27c440f43f6e80155fb1d101162e.png" alt=""></p>
-<p>可以看到当前类加载器变为自己写的加载器，在往上才是app加载器，这样就完成了一个自定义类加载器。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/10/20180710-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/" data-id="ck85qcw47000bdg832665cpl5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180706-jvm垃圾回收器介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" class="article-date">
-  <time datetime="2018-07-05T16:00:00.000Z" itemprop="datePublished">2018-07-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/">jvm垃圾回收器介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="jvm垃圾回收器介绍"><a href="#jvm垃圾回收器介绍" class="headerlink" title="jvm垃圾回收器介绍"></a>jvm垃圾回收器介绍</h1><p>介绍垃圾回收器之前，得明白垃圾回收算法有哪些，上一篇文章里有介绍：复制算法、标记-清除算法、标记-整理算法以及分代收集算法。其实垃圾回收器就是这些垃圾回收算法的具体实现与具体应用，我们要根据不同的业务场景选择合适的垃圾回收器，到目前为止还没有出现一种万能的垃圾回收器，所以明白这些垃圾回收器的具体原理对我们的开发是至关重要的。</p>
-<h4 id="1-Serial（串行）收集器"><a href="#1-Serial（串行）收集器" class="headerlink" title="1.Serial（串行）收集器"></a>1.Serial（串行）收集器</h4><p>这是一个单线程的收集器，新生代收集器，采用复制算法，意味着只会有一条GC线程区完成垃圾回收，并且在GC的时候必须暂停其他所有的用户线程，就是STW（Stop the world），直到它收集结束。很明显，STW越长，对用户的体验就越差，所以这个收集器不适合用在与用户交互比较多的地方（比如B/S），它适合运行在Client模式下的程序，因为没有多线程的上下文交互的开销。我们可以设置-XX:+UseSerialGC参数来使用这个收集器，这也是jvm在Client模式下的默认值。</p>
-<p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/f297391c4081070480e133d1f87e2291.png" alt=""></p>
-<h4 id="2-Serial-Old收集器"><a href="#2-Serial-Old收集器" class="headerlink" title="2.Serial Old收集器"></a>2.Serial Old收集器</h4><p>Serial的老年代收集器，采用标记-整理算法，单线程，在GC的时候也需要暂停其他用户线程，在jdk1.5之前与Parallel收集器配合使用。</p>
-<h4 id="3-ParNew收集器"><a href="#3-ParNew收集器" class="headerlink" title="3.ParNew收集器"></a>3.ParNew收集器</h4><p>其实就是Serial的多线程版本，除了采用多线程收集外，其它所有的特点（回收策略、控制参数、回收算法）都与Serial收集器一致，采用复制算法，多个GC线程并行处理（这里讲一下并行和并发：并行是指多条GC线程同时进行工作，但此时用户线程处于等待状态；并发是指GC线程跟用户线程都在执行，但两者是交替执行的，用户线程继续运行，GC线程运行在另一个CPU上），它的存在就是为了缩短暂停时间（STW），但还是会有，是运行在Server模式下的首要选择，经常与CMS收集器来配合使用来实现真正意义上的并发收集器。设置参数  -XX:+UseParNewGC来控制使用。设置-XX:ParallelGCThreads来设置执行内存回收的线程数。</p>
-<p><img src="http://bmob-cdn-22326.b0.upaiyun.com/2018/11/14/3dac243340b2ba1a80694baf023e7710.png" alt=""></p>
-<h4 id="4-Parallel-Scavenge收集器"><a href="#4-Parallel-Scavenge收集器" class="headerlink" title="4.Parallel Scavenge收集器"></a>4.Parallel Scavenge收集器</h4><p>Parallel收集器是一个新生代收集器，采用复制算法，也是一个多线程并行GC的收集器，看起来跟ParNew没什么不同啊，有什么特别之处呢，存在即合理，它的关注点跟ParNew不一样，ParNew关注的是缩短垃圾收集时间，而Parallel的关注点则是CPU吞吐量，所谓CPU吞吐量就是CPU中运行用户代码的时间与CPU总消耗时间的比值，比如：jvm运行100min，用户代码运行99min，垃圾收集1min，吞吐量就是99%，这种收集器能最高效率的利用CPU，适合进行后台运算。设置-XX:+UseParallelGC来控制使用，设置-XX:GCTimeRatio来设置用户执行时间占总时间的比例，默认99。设置-XX：MaxGCPauseMillis控制GC的最大停顿时间（只在Parallel下有）。</p>
-<h4 id="5-Parallel-Old收集器"><a href="#5-Parallel-Old收集器" class="headerlink" title="5.Parallel Old收集器"></a>5.Parallel Old收集器</h4><p>Parallel的老年代收集器，采用标记-整理算法，多线程并行收集，在GC时，仍然要暂停其他线程。在jdk1.6后出现，设置-XX:UseParallelOldGC来控制使用。</p>
-<h4 id="6-CMS收集器"><a href="#6-CMS收集器" class="headerlink" title="6.CMS收集器"></a>6.CMS收集器</h4><p>CMS（Concurrent Mark Sweep）收集器，顾名思义，并发标记清除，是一个老年代收集器，致力于获取最短回收停顿时间，使用标记清除算法，多线程，优点是并发收集（用户线程和GC线程可以同时工作），停顿小。它比前几种收集器要复杂一点，它的过程是：初始标记 -&gt; 并发标记 -&gt; 预清理 -&gt; 可控的预清理 -&gt; 重新标记 -&gt; 并发清除 -&gt; 并发重设。</p>
-<h5 id="初始标记"><a href="#初始标记" class="headerlink" title="初始标记"></a>初始标记</h5><p>这部分会有STW，作用是标记存活的对象，有两部分：</p>
-<p>1.标记所有老年代中的GC Roots对象。</p>
-<p>2.标记年轻代中活着的对象引用到的老年代中的对象。</p>
-<h5 id="并发标记"><a href="#并发标记" class="headerlink" title="并发标记"></a>并发标记</h5><p>这部分是用户线程和GC线程并发进行的，主要作用是从初始标记阶段所标记的对象找出所有的存活对象，因为是并发的，所以在运行期间会发生新生代的对象晋升到老年代、大对象分配到老年代以及老年代的对象之间引用变化，对于这些对象，都要重新标记，为了提高重新标记的效率，该阶段会把上述对象所在的Card标识为Dirty，后续只需扫描这些Dirty Card的对象，避免扫描整个老年代，并发标记阶段只负责将引用发生改变的Card标记为Dirty状态，不负责处理。</p>
-<h5 id="预清理"><a href="#预清理" class="headerlink" title="预清理"></a>预清理</h5><p>其实在并发标记阶段并不能标记所有的老年代的存活对象，比如在并发阶段，在新生代创建了一个对象A，并且引用了老年代的对象B，在并发阶段并不会标记B对象，在预清理阶段会标记这个对象。其实在此阶段干的还是标记的事。</p>
-<h5 id="可控的预清理"><a href="#可控的预清理" class="headerlink" title="可控的预清理"></a>可控的预清理</h5><p>为什么会有这个阶段？因为CMS GC的终极目标是降低垃圾回收时的暂停时间，所以在该阶段要尽最大的努力去处理那些在并发阶段被应用线程更新的老年代对象，这样在暂停的重新标记阶段就可以少处理一些，暂停时间也会相应的降低。这个阶段会不断的去扫描新生代，标记可达的老年代对象，但不是一直循环扫描的，最大时间5s，并且如果在这5s内发生了一次YGC就更好了，因为重新标记阶段也会扫描新生代。</p>
-<h5 id="重新标记"><a href="#重新标记" class="headerlink" title="重新标记"></a>重新标记</h5><p>这个阶段会导致第二次STW，该阶段的任务是完成标记整个年老代的所有的存活对象。这个阶段，重新标记的内存范围是整个堆，包含新生代和老年代。为什么要扫描新生代呢，因为对于老年代中的对象，如果被新生代中的对象引用，那么就会被视为存活对象，即使新生代的对象已经不可达了，也会使用这些不可达的对象当做cms的“gc root”，来扫描老年代； 因此对于老年代来说，引用了老年代中对象的新生代的对象，也会被老年代视作“GC ROOTS”:当此阶段耗时较长的时候，可以加入参数-XX:+CMSScavengeBeforeRemark，在重新标记之前，先执行一次ygc，回收掉年轻带的对象无用的对象，并将对象放入幸存带或晋升到老年代，这样再进行年轻带扫描时，只需要扫描幸存区的对象即可，一般幸存带非常小，这大大减少了扫描时间 。</p>
-<h5 id="并发清理"><a href="#并发清理" class="headerlink" title="并发清理"></a>并发清理</h5><p>这个阶段就是清理那些无用的对象了，这个阶段也是并发的，所以伴随程序运行自然就还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后，CMS无法在当次收集中处理掉它们，只好留待下一次GC时再清理掉。这一部分垃圾就称为“浮动垃圾”。</p>
-<h5 id="并发重设"><a href="#并发重设" class="headerlink" title="并发重设"></a>并发重设</h5><p>这个阶段并发执行，重新设置CMS算法内部的数据结构，准备下一个CMS生命周期的使用。</p>
-<h4 id="7-G1收集器"><a href="#7-G1收集器" class="headerlink" title="7.G1收集器"></a>7.G1收集器</h4><p>G1 (Garbage-First)是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足GC停顿时间要求的同时,还具备高吞吐量性能特征。它与CMS收集器相比有以下特点：空间整合和可预测停顿。可预测停顿是G1相对于CMS的一个大优势，降低停顿时间是G1和ＣＭＳ共同的关注点，但Ｇ１除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内。它主要分为四个步骤：初始标记，并发标记，最终标记，筛选回收。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/20180706-jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%E4%BB%8B%E7%BB%8D/" data-id="ck85qcw49000gdg83g4208851" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180705-动态代理设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/05/20180705-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="article-date">
-  <time datetime="2018-07-04T16:00:00.000Z" itemprop="datePublished">2018-07-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/20180705-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">动态代理设计模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="动态代理设计模式"><a href="#动态代理设计模式" class="headerlink" title="动态代理设计模式"></a>动态代理设计模式</h1><p>在看动态代理设计模式之前我们先来了解一下基础代理设计模式，通俗来讲就是你想干一件事，又不想直接去干，要借别人的手来干这个事，我们直接通过一个例子来讲这个事：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ISubject</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;<span class="comment">//核心业务</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealSubject</span> <span class="keyword">implements</span> <span class="title">ISubject</span></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃饭"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxySubject</span> <span class="keyword">implements</span> <span class="title">ISubject</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> ISubject subject; <span class="comment">//真实对象的引用</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ProxySubject</span><span class="params">(ISubject subject)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = subject;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"做饭"</span>);</span><br><span class="line">		<span class="keyword">this</span>.subject.eat();</span><br><span class="line">		System.out.println(<span class="string">"洗碗"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test33</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ISubject proxy = <span class="keyword">new</span> ProxySubject(<span class="keyword">new</span> RealSubject());</span><br><span class="line">		proxy.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>你饿了想吃饭，但你得先做饭吧，吃完饭后再洗碗吧，这个时候你的真实业务就是吃饭，代理就是做一些辅助性工作，做饭洗碗什么的，这个代理有吃饭这个真实对象的引用，才能完成整体的流程，用户关注的不是真实对象，而是代理。再举一个例子：你想跟一个女生表白，但又不好意思直说，这个时候你就需要借助你哥们跟她闺蜜来在旁边“煽风点火”，这样成功的几率就大一些，你的核心业务是对她说出那三个字，在这之前需要一些特定操作才行。<br>明白了基础代理后，我们需要研究一下深层次的东西，很显然，这种基础代理在实际的开发中并不会用到。假如在一个项目中需要多个接口都需要实现代理设计，那么要做的事情就是给每个接口都实现两个子类，一个代理，一个真实，再假如代理执行的辅助操作都类似呢，这个时候就要考虑动态代理设计了。<br>如果想要实现这种动态代理，那么这个代理类就不能直接实现某一个具体接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ISubject</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name,<span class="keyword">int</span> num)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealSubject</span> <span class="keyword">implements</span> <span class="title">ISubject</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name, <span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃"</span>+ num +<span class="string">"份的"</span>+ name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PorxySubject</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;  <span class="comment">//表明是一个动态代理类</span></span><br><span class="line">	<span class="keyword">private</span> Object target; <span class="comment">// 绑定任意的接口对象</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 实现真实对象的绑定，同时返回代理对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> taget 真实对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 代理对象</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">bind</span><span class="params">(Object target)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.target = target;</span><br><span class="line">		<span class="keyword">return</span> Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), <span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"做饭"</span>);</span><br><span class="line">		Object ret = method.invoke(target, args);</span><br><span class="line">		System.out.println(<span class="string">"洗碗"</span>);</span><br><span class="line">		<span class="keyword">return</span> ret;</span><br><span class="line">	&#125;  </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test34</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ISubject1 subject = (ISubject1)<span class="keyword">new</span> PorxySubject().bind(<span class="keyword">new</span> RealSubject());</span><br><span class="line">		subject.eat(<span class="string">"米饭"</span>, <span class="number">5</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里有一个InvocationHandler接口，只有实现了此接口的类才具有动态代理的功能，InvocationHandler接口里面也有一个invoke方法invoke(Object proxy, Method method, Object[] args)表示调用要执行的方法，在这里面写代理对象要做的事，参数proxy表示代理对象，这个代理对象是由Proxy类的newProxyInstance()自动创建的，method指明要执行的方法，args是参数。<strong>返回给用户的所有接口对象都是代理对象。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/05/20180705-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="ck85qcw430007dg831l7z7z6q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180701-垃圾回收算法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/01/20180701-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="article-date">
-  <time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished">2018-07-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jvm/">jvm</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/01/20180701-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/">垃圾回收算法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h1><p>Java语言相比其他的语言有一个特别大的优势就是自动内存管理，这使得Java程序员在开发的时候不用区太关注内存的使用和管理，极大的方便了程序员。但在实际的开发中，我们还是要了解jvm内存分配、管理、回收等方面的知识，因为工作中有时候会涉及到性能调优，程序运行的底层都不懂怎么调优？关于jvm内存的分区就不说了，来学习一下垃圾回收。</p>
-<p>哪些内存需要回收？我们知道，程序计数器、本地方法栈和虚拟机栈都是线程私有的，随着线程的消亡而消亡，虚拟机栈中的栈帧随着方法的出入而出栈入栈，而且方法的运行运行所需的内存在编译期就已经确定好了，所以在方法结束或者线程结束时，这部分内存也就释放了。而jvm堆区是线程共享的，一个程序只有在运行期间才知道要new哪些对象，这块内存的分配是动态的，所以一般讲的内存回收就是对堆区的内存回收。</p>
-<p>还有一个问题，哪些对象是无用的，需要回收的？有两种方式：一种是<strong>引用计数法</strong>，就是给每一个对象添加一个计数器，每有一个地方引用它，计数器就加一，引用失效，就减一，计数器为零，就表明这个对象是无用的，这种方式实现简单，效率高，但有一个问题就是不能解决对象之间的循环引用问题，比如对象A引用对象B，B引用A，两个对象的计数器都是1，除此之外再没有其它地方引用它两，jvm也无法回收，这就造成了内存的浪费。还有一种是<strong>可达性分析</strong>，就是通过一系列的叫做“GC Roots”的对象作为起点，向下搜索，形成一个引用链，当有一个对象到GC Roots没有任何引用链相连的话，那这个对象就是无用的，Java里可以作为GC Roots的对象有：虚拟机栈中的变量引用的对象、方法区中静态属性/常量引用的对象、本地方法栈中引用的对象。</p>
-<h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p>此算法分为“标记”和“清楚”两个阶段，标记阶段就通过可达性分析算法来标记要回收的算法，然后进行清除，这种算法有一个缺点，就是清除完后内存碎片太多，以至于下次分配一个大对象时，无法找到一段连续的内存而不得不提前出发一次GC，还有另一个缺点时效率低，不管是标记还是清除。</p>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>为了解决效率问题，出现了“复制”算法，主要思想是将内存分为大小相等的两部分，每次只使用其中的一部分，当这一块的内存用完了，将其中存活的对象复制到另一部分，然后把这部分的内存清理掉，这使得每次GC都只对一半的内存进行回收，极大的提高了效率。这种算法经常被用在新生代上，在另一半内存中熬过一定次数的GC的对象就会被晋升到Old区中。其实新生代中大部分的对象寿命是很短，没有必要来分配一半的内存去装数量很少的存活对象，所以 Java虚拟机将新生代分为了一个Eden区和两个Survivor区，新对象在Eden分配，存活对象在Survivor分配，比例是8：1：1，这是很合理的，每次都只用到Eden区和一个空的Survivor区，发生YGC的时候，将Eden区的存活对象复制到空闲Survivor中，将另一个Survivor中还存活的对象也复制到这个Survivor中，清理空间，说白了，两个Survivor总有一个是空的，在两个Survivor之间切换超过15次还存活的对象就会晋升到Old区中。</p>
-<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p>此算法分为“标记”和“整理”两个阶段，标记阶段跟标记-清除算法一样，整理阶段就是将存活的对象向一端移动，然后清理掉端边界以外的内存，这种算法GC后的内存是很规整的，没有内存碎片。</p>
-<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>这种算法就是将堆内存分为新生代和年老代，根据不同的特点选用不同的算法。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/20180701-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" data-id="ck85qcw440008dg83e4oded75" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20180512-synchronized作用在普通方法上跟作用在静态方法上的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/12/20180512-synchronized%E4%BD%9C%E7%94%A8%E5%9C%A8%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95%E4%B8%8A%E8%B7%9F%E4%BD%9C%E7%94%A8%E5%9C%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%8A%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2018-05-11T16:00:00.000Z" itemprop="datePublished">2018-05-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/12/20180512-synchronized%E4%BD%9C%E7%94%A8%E5%9C%A8%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95%E4%B8%8A%E8%B7%9F%E4%BD%9C%E7%94%A8%E5%9C%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%8A%E7%9A%84%E5%8C%BA%E5%88%AB/">synchronized作用在普通方法上跟作用在静态方法上的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="synchronized作用在普通方法上跟作用在静态方法上的区别"><a href="#synchronized作用在普通方法上跟作用在静态方法上的区别" class="headerlink" title="synchronized作用在普通方法上跟作用在静态方法上的区别"></a>synchronized作用在普通方法上跟作用在静态方法上的区别</h1><p>synchronized作用于普通方法上是对调用这个方法的实例对象加锁，看下面的例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSyn</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//作用于普通方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span></span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">2000</span>;i++)&#123;</span><br><span class="line">            increase();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        TestSyn testSyn = <span class="keyword">new</span> TestSyn();</span><br><span class="line">        TestSyn testSyn1 = <span class="keyword">new</span> TestSyn();</span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(testSyn);</span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread(testSyn1);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">        t1.join();</span><br><span class="line">        t2.join();</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果是3988，为什么不是4000？原因：这里new了两个实例对象，两个线程分别持有这两个对象，A线程进入increase()并不会阻塞B线程进入，因为是两个不同的对象，每个对象都有自己的increase()，互不影响，所以会出现访问共享资源线程不安全的情况。那么如果多线程持有同一个对象呢？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSyn</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//作用于普通方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span></span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">2000</span>;i++)&#123;</span><br><span class="line">            increase();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        TestSyn testSyn = <span class="keyword">new</span> TestSyn();</span><br><span class="line"><span class="comment">//        TestSyn testSyn1 = new TestSyn();</span></span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(testSyn);</span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread(testSyn);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">        t1.join();</span><br><span class="line">        t2.join();</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果永远都是4000，这就解释了为什么synchronized作用于普通方法是对每个实例对象加锁。</p>
-<p>来看看作用于静态方法是什么情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSyn</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//作用于静态方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span></span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">2000</span>;i++)&#123;</span><br><span class="line">            increase();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        TestSyn testSyn = <span class="keyword">new</span> TestSyn();</span><br><span class="line">        TestSyn testSyn1 = <span class="keyword">new</span> TestSyn();</span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(testSyn);</span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread(testSyn1);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">        t1.join();</span><br><span class="line">        t2.join();</span><br><span class="line">        System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果永远都是4000，原因：synchronized作用于静态方法是对当前类对象加锁（TestSyn.class），不限于某个实例对象。有时候为了减小锁粒度，可以适当的将synchronized作用于一段代码上，比如<code>synchronized(this)</code>是对当前实例对象加锁，<code>synchronized(TestSyn.class)</code>是对类对象加锁。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/20180512-synchronized%E4%BD%9C%E7%94%A8%E5%9C%A8%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95%E4%B8%8A%E8%B7%9F%E4%BD%9C%E7%94%A8%E5%9C%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E4%B8%8A%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck85qcw420005dg834z87esqw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/03/24/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/10/20181110-%E7%94%A8%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E6%9D%A5%E8%A7%A3%E9%87%8AThreadLocal/">用一个例子来解释ThreadLocal</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/15/20180715-jvm%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/">jvm的对象创建</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/14/20180714-%E5%85%B3%E4%BA%8E%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%EF%BC%89/">关于工厂设计模式的问题（反射机制）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/12/20180712-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%8E%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">volatile关键字与单例模式</a>
-          </li>
-        
+</div>
+
+<!-- Pagination -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      <ul class="pagination">
+          
+          
+            <li class="next">
+              <a href="/page/2/">
+                <span>NEXT</span>
+                <span class="symbol-right">&gt;</span>
+              </a>
+            </li>
+          
       </ul>
     </div>
   </div>
+</div>
 
-  
-</aside>
-        
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <!-- After Footer Scripts -->
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/js/highlight.pack.js"></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
+
